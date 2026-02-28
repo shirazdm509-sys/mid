@@ -3,47 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiddMarket | معرفی کامل ساختار</title>
+<title>MiddMarket | معرفی قابلیت‌ها</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Vazirmatn',sans-serif;background:linear-gradient(135deg,#0f172a,#020617);color:#f1f5f9}
-.container{max-width:1300px;margin:auto;padding:60px 20px}
-h1{text-align:center;font-size:42px;font-weight:800;background:linear-gradient(90deg,#38bdf8,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.subtitle{text-align:center;color:#94a3b8;margin:15px 0 50px;font-size:18px}
+body {
+  margin: 0;
+  font-family: 'Vazirmatn', sans-serif;
+  background: linear-gradient(135deg,#0f172a,#020617);
+  color: #f1f5f9;
+}
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 60px 20px;
+}
+h1 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(90deg,#38bdf8,#0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  gap: 25px;
+}
+.card {
+  background: rgba(30,41,59,0.8);
+  border: 2px solid #38bdf8; /* پیش‌فرض آبی */
+  border-radius: 20px;
+  padding: 25px;
+  transition: 0.4s;
+  backdrop-filter: blur(10px);
+}
+.card.pro { border-color: #f97316; } /* کارت‌های قابلیت پیشرفته حاشیه نارنجی */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(14,165,233,0.25);
+}
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #38bdf8;
+}
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.card li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(148,163,184,0.1);
+  font-size: 14px;
+}
+.card li:last-child {
+  border-bottom: none;
+}
+.badge {
+  display: inline-block;
+  background: rgba(56,189,248,0.15);
+  color: #38bdf8;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  color: #64748b;
+  font-size: 14px;
+}
 
-/* Cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px}
-.card{background:rgba(30,41,59,.8);border:1px solid rgba(148,163,184,.15);border-radius:20px;padding:25px;transition:.4s;backdrop-filter:blur(10px)}
-.card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(14,165,233,.25);border-color:rgba(56,189,248,.4)}
-.card h2{font-size:20px;margin-bottom:15px;color:#38bdf8}
-.card ul{list-style:none;padding:0;margin:0}
-.card li{padding:8px 0;border-bottom:1px solid rgba(148,163,184,.1);font-size:14px}
-.card li:last-child{border-bottom:none}
+/* ===================== ریسپانسیو ===================== */
+@media (max-width: 1024px) {
+  .container { padding: 40px 15px; }
+  h1 { font-size: 36px; }
+  .subtitle { font-size: 16px; margin-bottom: 40px; }
+  .card h2 { font-size: 18px; }
+  .card li { font-size: 13px; padding: 6px 0; }
+}
 
-/* Expandable */
-.section-title{margin-top:90px;font-size:28px;color:#38bdf8;text-align:center}
-.accordion{margin-top:40px}
-.accordion-item{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:14px;margin-bottom:15px;overflow:hidden}
-.accordion-header{padding:18px;cursor:pointer;font-weight:600;background:#1e293b;transition:.3s}
-.accordion-header:hover{background:#334155}
-.accordion-content{max-height:0;overflow:hidden;transition:max-height .5s ease;padding:0 18px}
-.accordion-content ul{list-style:none;padding:15px 0;margin:0}
-.accordion-content li{padding:6px 0;color:#cbd5e1;font-size:14px}
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; gap: 20px; }
+  .card { padding: 20px; }
+  h1 { font-size: 32px; }
+  .subtitle { font-size: 15px; margin-bottom: 30px; }
+  .card h2 { font-size: 17px; }
+  .card li { font-size: 12px; }
+}
 
-/* Tree Diagram */
-.tree{margin-top:60px;text-align:center}
-.tree ul{padding-top:20px;position:relative;display:inline-block}
-.tree li{float:right;text-align:center;list-style-type:none;position:relative;padding:20px 5px 0 5px}
-.tree li::before,.tree li::after{content:'';position:absolute;top:0;right:50%;border-top:1px solid #38bdf8;width:50%;height:20px}
-.tree li::after{right:auto;left:50%;border-left:1px solid #38bdf8}
-.tree li:only-child::after,.tree li:only-child::before{display:none}
-.tree li:only-child{padding-top:0}
-.tree li:first-child::before,.tree li:last-child::after{border:none}
-.tree li:last-child::before{border-right:1px solid #38bdf8;border-radius:0 5px 0 0}
-.tree li:first-child::after{border-radius:5px 0 0 0}
-.tree div{border:1px solid #38bdf8;padding:10px 15px;border-radius:10px;display:inline-block;background:#1e293b;font-size:13px}
-
-.footer{text-align:center;margin-top:80px;color:#64748b;font-size:14px}
+@media (max-width: 480px) {
+  .container { padding: 30px 10px; }
+  h1 { font-size: 28px; }
+  .subtitle { font-size: 14px; margin-bottom: 25px; }
+  .card h2 { font-size: 16px; }
+  .card li { font-size: 12px; padding: 5px 0; }
+  .badge { padding: 5px 12px; font-size: 12px; }
+  .footer { font-size: 13px; margin-top: 50px; }
+}
 </style>
 </head>
 <body>
@@ -52,126 +119,135 @@ h1{text-align:center;font-size:42px;font-weight:800;background:linear-gradient(9
 <h1>ساختار و قابلیت‌های سایت MiddMarket</h1>
 <p class="subtitle">پلتفرم چندفروشگاهی حرفه‌ای با پشتیبانی از ۴ زبان (فارسی | انگلیسی | روسی | عربی)</p>
 
-<!-- GRID OVERVIEW -->
 <div class="grid">
-<div class="card"><h2>سیستم فروشندگان</h2><ul>
-<li>ثبت‌نام و ایجاد فروشگاه اختصاصی</li>
-<li>مدیریت محصولات متغیر و ساده</li>
-<li>مدیریت موجودی و انبار</li>
-<li>مدیریت سفارش‌ها و وضعیت‌ها</li>
-<li>گزارش درآمد و کمیسیون</li>
+
+<div class="card">
+<h2>🛍 سیستم چندفروشگاهی</h2>
+<ul>
+<li>ثبت و مدیریت فروشندگان</li>
+<li>ایجاد فروشگاه اختصاصی برای هر فروشنده</li>
+<li>مدیریت دسته‌بندی محصولات</li>
+<li>محصولات ویژه و پیشنهادی</li>
+<li>سیستم امتیازدهی و نظرات کاربران</li>
+<li>لیست علاقه‌مندی کاربران</li>
+</ul>
+</div>
+
+<div class="card pro">
+<h2>👤 پنل فروشندگان</h2>
+<ul>
+<li>داشبورد اختصاصی فروشنده</li>
+<li>افزودن، ویرایش و مدیریت محصولات</li>
+<li>مدیریت سفارش‌ها</li>
+<li>گزارش فروش و درآمد</li>
 <li>درخواست تسویه حساب</li>
-<li>سیستم امتیاز فروشنده</li>
-</ul></div>
+<li>مدیریت کد تخفیف و کمپین‌ها</li>
+<li>شخصی‌سازی صفحه فروشگاه</li>
+<li>سیستم اشتراک فروشندگان</li>
+<li>امکان فروش محصولات رزروی و مزایده‌ای</li>
+<li>ویرایش تنظیمات صفحه فروشگاه از پیشخوان فروشنده</li>
+</ul>
+</div>
 
-<div class="card"><h2>مدیریت محصولات</h2><ul>
-<li>دسته‌بندی و زیر دسته نامحدود</li>
-<li>ویژگی‌ها و فیلتر پیشرفته</li>
-<li>محصول متغیر (سایز، رنگ و...)</li>
-<li>گالری تصاویر حرفه‌ای</li>
-<li>محصولات ویژه و تخفیف‌دار</li>
-</ul></div>
-
-<div class="card"><h2>تجربه کاربری</h2><ul>
+<div class="card">
+<h2>🛒 پنل کاربران</h2>
+<ul>
+<li>داشبورد کاربری</li>
 <li>سبد خرید هوشمند</li>
-<li>پرداخت آنلاین چندمرحله‌ای</li>
-<li>پیگیری سفارش</li>
-<li>سیستم نظرات و امتیازدهی</li>
-<li>اعلان‌های کاربری</li>
-</ul></div>
+<li>پرداخت آنلاین</li>
+<li>پیگیری وضعیت سفارش</li>
+<li>مدیریت آدرس‌ها</li>
+<li>سیستم تیکت پشتیبانی</li>
+<li>اعلان‌های سیستمی</li>
+</ul>
+</div>
 
-<div class="card"><h2>سیستم مالی</h2><ul>
-<li>مدیریت کمیسیون خودکار</li>
-<li>تقسیم درآمد بین فروشندگان</li>
-<li>گزارش کامل تراکنش‌ها</li>
+<div class="card">
+<h2>💳 سیستم مالی و پرداخت</h2>
+<ul>
+<li>اتصال به درگاه‌های پرداخت</li>
+<li>مدیریت کمیسیون سایت</li>
+<li>تسویه حساب با فروشندگان</li>
 <li>مدیریت بازگشت وجه</li>
-</ul></div>
-</div>
-
-<!-- ACCORDION -->
-<h2 class="section-title">نمایش تعاملی قابلیت‌ها</h2>
-<div class="accordion">
-
-<div class="accordion-item">
-<div class="accordion-header">پنل فروشندگان</div>
-<div class="accordion-content"><ul>
-<li>داشبورد فروش اختصاصی</li>
-<li>مدیریت کوپن تخفیف</li>
-<li>گزارش فروش روزانه و ماهانه</li>
-<li>مدیریت حمل و نقل اختصاصی</li>
-<li>مدیریت نقد و بررسی محصولات</li>
-</ul></div></div>
-
-<div class="accordion-item">
-<div class="accordion-header">سیستم مدیریت سایت</div>
-<div class="accordion-content"><ul>
-<li>مدیریت همه فروشندگان</li>
-<li>تعیین درصد کمیسیون</li>
-<li>تایید یا رد محصولات</li>
-<li>مدیریت درخواست تسویه</li>
-<li>مدیریت صفحات و سئو</li>
-</ul></div></div>
-
-<div class="accordion-item">
-<div class="accordion-header">چندزبانه و ارزی</div>
-<div class="accordion-content"><ul>
-<li>تغییر زبان لحظه‌ای</li>
-<li>مدیریت ترجمه محتوا</li>
-<li>پشتیبانی از ارزهای مختلف</li>
-<li>قیمت‌گذاری بر اساس کشور</li>
-</ul></div></div>
-
-</div>
-
-<!-- TREE DIAGRAM -->
-<h2 class="section-title">دیاگرام ساختار درختی پلتفرم</h2>
-<div class="tree">
-<ul>
-<li>
-<div>MiddMarket</div>
-<ul>
-<li>
-<div>فروشندگان</div>
-<ul>
-<li><div>ثبت فروشگاه</div></li>
-<li><div>مدیریت محصول</div></li>
-<li><div>مدیریت سفارش</div></li>
-<li><div>گزارش درآمد</div></li>
-</ul>
-</li>
-<li>
-<div>کاربران</div>
-<ul>
-<li><div>سبد خرید</div></li>
-<li><div>پرداخت</div></li>
-<li><div>پیگیری سفارش</div></li>
-</ul>
-</li>
-<li>
-<div>مدیریت کل</div>
-<ul>
-<li><div>مدیریت کمیسیون</div></li>
-<li><div>مدیریت فروشندگان</div></li>
-<li><div>مدیریت محتوا</div></li>
-</ul>
-</li>
-</ul>
-</li>
+<li>گزارش کامل تراکنش‌ها</li>
+<li class="pro">گزارشات پیشرفته فروش و درآمد</li>
+<li class="pro">سیستم کیف پول داخلی فروشندگان</li>
 </ul>
 </div>
 
-<div class="footer">طراحی معماری حرفه‌ای پلتفرم چندفروشگاهی MiddMarket</div>
+<div class="card">
+<h2>🌍 چندزبانه و بین‌المللی</h2>
+<ul>
+<li>پشتیبانی کامل از فارسی</li>
+<li>پشتیبانی از زبان انگلیسی</li>
+<li>پشتیبانی از زبان روسی</li>
+<li>پشتیبانی از زبان عربی</li>
+<li>سیستم تغییر زبان داینامیک</li>
+<li>امکان تعریف ارزهای مختلف</li>
+</ul>
+<span class="badge">آماده توسعه بین‌المللی</span>
+</div>
+
+<div class="card pro">
+<h2>🔐 امنیت و مدیریت دسترسی پیشرفته</h2>
+<ul>
+<li>احراز هویت کاربران و فروشندگان</li>
+<li>مدیریت سطح دسترسی نقش‌ها</li>
+<li>ثبت لاگ فعالیت‌ها</li>
+<li>محافظت از داده‌های کاربران</li>
+<li>سیستم هشدار فعالیت مشکوک</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📊 گزارش‌گیری و تحلیل</h2>
+<ul>
+<li>گزارش فروش کلی سایت</li>
+<li>تحلیل عملکرد فروشندگان</li>
+<li>گزارش سفارش‌ها</li>
+<li>آمار بازدید و نرخ تبدیل</li>
+<li class="pro">گزارشات پیشرفته با جزئیات محصول و فروشنده</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📢 بازاریابی و رشد</h2>
+<ul>
+<li>ایجاد کمپین تخفیف</li>
+<li>فروش ویژه و پیشنهاد لحظه‌ای</li>
+<li>سیستم خبرنامه</li>
+<li>ارسال اعلان به کاربران</li>
+<li class="pro">مدیریت کمپین‌های اختصاصی فروشندگان</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🚚 ارسال و لجستیک</h2>
+<ul>
+<li>مدیریت روش‌های ارسال</li>
+<li>پیگیری مرسوله</li>
+<li>بروزرسانی وضعیت سفارش</li>
+<li class="pro">امکان تعریف روش‌های حمل‌ونقل اختصاصی برای هر فروشنده</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📝 مدیریت محتوا و سئو</h2>
+<ul>
+<li>سیستم وبلاگ</li>
+<li>مدیریت صفحات قوانین و حریم خصوصی</li>
+<li>مدیریت سوالات متداول</li>
+<li>بهینه‌سازی سئو صفحات</li>
+<li class="pro">مدیریت محتوای چندزبانه پیشرفته</li>
+</ul>
+</div>
 
 </div>
 
-<script>
-document.querySelectorAll('.accordion-header').forEach(header=>{
-header.addEventListener('click',()=>{
-const content=header.nextElementSibling
-if(content.style.maxHeight){content.style.maxHeight=null}
-else{content.style.maxHeight=content.scrollHeight+'px'}
-})})
-</script>
+<div class="footer">
+طراحی ساختار فنی و معماری پلتفرم MiddMarket
+</div>
 
+</div>
 </body>
 </html>
