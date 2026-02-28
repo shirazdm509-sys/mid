@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiddMarket | معرفی کامل ساختار</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Vazirmatn',sans-serif;background:linear-gradient(135deg,#0f172a,#020617);color:#f1f5f9}
+.container{max-width:1300px;margin:auto;padding:60px 20px}
+h1{text-align:center;font-size:42px;font-weight:800;background:linear-gradient(90deg,#38bdf8,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#94a3b8;margin:15px 0 50px;font-size:18px}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px}
+.card{background:rgba(30,41,59,.8);border:1px solid rgba(148,163,184,.15);border-radius:20px;padding:25px;transition:.4s;backdrop-filter:blur(10px)}
+.card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(14,165,233,.25);border-color:rgba(56,189,248,.4)}
+.card h2{font-size:20px;margin-bottom:15px;color:#38bdf8}
+.card ul{list-style:none;padding:0;margin:0}
+.card li{padding:8px 0;border-bottom:1px solid rgba(148,163,184,.1);font-size:14px}
+.card li:last-child{border-bottom:none}
+
+/* Expandable */
+.section-title{margin-top:90px;font-size:28px;color:#38bdf8;text-align:center}
+.accordion{margin-top:40px}
+.accordion-item{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:14px;margin-bottom:15px;overflow:hidden}
+.accordion-header{padding:18px;cursor:pointer;font-weight:600;background:#1e293b;transition:.3s}
+.accordion-header:hover{background:#334155}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height .5s ease;padding:0 18px}
+.accordion-content ul{list-style:none;padding:15px 0;margin:0}
+.accordion-content li{padding:6px 0;color:#cbd5e1;font-size:14px}
+
+/* Tree Diagram */
+.tree{margin-top:60px;text-align:center}
+.tree ul{padding-top:20px;position:relative;display:inline-block}
+.tree li{float:right;text-align:center;list-style-type:none;position:relative;padding:20px 5px 0 5px}
+.tree li::before,.tree li::after{content:'';position:absolute;top:0;right:50%;border-top:1px solid #38bdf8;width:50%;height:20px}
+.tree li::after{right:auto;left:50%;border-left:1px solid #38bdf8}
+.tree li:only-child::after,.tree li:only-child::before{display:none}
+.tree li:only-child{padding-top:0}
+.tree li:first-child::before,.tree li:last-child::after{border:none}
+.tree li:last-child::before{border-right:1px solid #38bdf8;border-radius:0 5px 0 0}
+.tree li:first-child::after{border-radius:5px 0 0 0}
+.tree div{border:1px solid #38bdf8;padding:10px 15px;border-radius:10px;display:inline-block;background:#1e293b;font-size:13px}
+
+.footer{text-align:center;margin-top:80px;color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ساختار و قابلیت‌های سایت MiddMarket</h1>
+<p class="subtitle">پلتفرم چندفروشگاهی حرفه‌ای با پشتیبانی از ۴ زبان (فارسی | انگلیسی | روسی | عربی)</p>
+
+<!-- GRID OVERVIEW -->
+<div class="grid">
+<div class="card"><h2>سیستم فروشندگان</h2><ul>
+<li>ثبت‌نام و ایجاد فروشگاه اختصاصی</li>
+<li>مدیریت محصولات متغیر و ساده</li>
+<li>مدیریت موجودی و انبار</li>
+<li>مدیریت سفارش‌ها و وضعیت‌ها</li>
+<li>گزارش درآمد و کمیسیون</li>
+<li>درخواست تسویه حساب</li>
+<li>سیستم امتیاز فروشنده</li>
+</ul></div>
+
+<div class="card"><h2>مدیریت محصولات</h2><ul>
+<li>دسته‌بندی و زیر دسته نامحدود</li>
+<li>ویژگی‌ها و فیلتر پیشرفته</li>
+<li>محصول متغیر (سایز، رنگ و...)</li>
+<li>گالری تصاویر حرفه‌ای</li>
+<li>محصولات ویژه و تخفیف‌دار</li>
+</ul></div>
+
+<div class="card"><h2>تجربه کاربری</h2><ul>
+<li>سبد خرید هوشمند</li>
+<li>پرداخت آنلاین چندمرحله‌ای</li>
+<li>پیگیری سفارش</li>
+<li>سیستم نظرات و امتیازدهی</li>
+<li>اعلان‌های کاربری</li>
+</ul></div>
+
+<div class="card"><h2>سیستم مالی</h2><ul>
+<li>مدیریت کمیسیون خودکار</li>
+<li>تقسیم درآمد بین فروشندگان</li>
+<li>گزارش کامل تراکنش‌ها</li>
+<li>مدیریت بازگشت وجه</li>
+</ul></div>
+</div>
+
+<!-- ACCORDION -->
+<h2 class="section-title">نمایش تعاملی قابلیت‌ها</h2>
+<div class="accordion">
+
+<div class="accordion-item">
+<div class="accordion-header">پنل فروشندگان</div>
+<div class="accordion-content"><ul>
+<li>داشبورد فروش اختصاصی</li>
+<li>مدیریت کوپن تخفیف</li>
+<li>گزارش فروش روزانه و ماهانه</li>
+<li>مدیریت حمل و نقل اختصاصی</li>
+<li>مدیریت نقد و بررسی محصولات</li>
+</ul></div></div>
+
+<div class="accordion-item">
+<div class="accordion-header">سیستم مدیریت سایت</div>
+<div class="accordion-content"><ul>
+<li>مدیریت همه فروشندگان</li>
+<li>تعیین درصد کمیسیون</li>
+<li>تایید یا رد محصولات</li>
+<li>مدیریت درخواست تسویه</li>
+<li>مدیریت صفحات و سئو</li>
+</ul></div></div>
+
+<div class="accordion-item">
+<div class="accordion-header">چندزبانه و ارزی</div>
+<div class="accordion-content"><ul>
+<li>تغییر زبان لحظه‌ای</li>
+<li>مدیریت ترجمه محتوا</li>
+<li>پشتیبانی از ارزهای مختلف</li>
+<li>قیمت‌گذاری بر اساس کشور</li>
+</ul></div></div>
+
+</div>
+
+<!-- TREE DIAGRAM -->
+<h2 class="section-title">دیاگرام ساختار درختی پلتفرم</h2>
+<div class="tree">
+<ul>
+<li>
+<div>MiddMarket</div>
+<ul>
+<li>
+<div>فروشندگان</div>
+<ul>
+<li><div>ثبت فروشگاه</div></li>
+<li><div>مدیریت محصول</div></li>
+<li><div>مدیریت سفارش</div></li>
+<li><div>گزارش درآمد</div></li>
+</ul>
+</li>
+<li>
+<div>کاربران</div>
+<ul>
+<li><div>سبد خرید</div></li>
+<li><div>پرداخت</div></li>
+<li><div>پیگیری سفارش</div></li>
+</ul>
+</li>
+<li>
+<div>مدیریت کل</div>
+<ul>
+<li><div>مدیریت کمیسیون</div></li>
+<li><div>مدیریت فروشندگان</div></li>
+<li><div>مدیریت محتوا</div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div class="footer">طراحی معماری حرفه‌ای پلتفرم چندفروشگاهی MiddMarket</div>
+
+</div>
+
+<script>
+document.querySelectorAll('.accordion-header').forEach(header=>{
+header.addEventListener('click',()=>{
+const content=header.nextElementSibling
+if(content.style.maxHeight){content.style.maxHeight=null}
+else{content.style.maxHeight=content.scrollHeight+'px'}
+})})
+</script>
+
+</body>
+</html>
